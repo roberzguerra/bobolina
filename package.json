@@ -1,0 +1,31 @@
+{
+  "scripts": {
+    "dev": "mix --mix-config app/webpack.mix.js",
+    "watch": "mix --mix-config app/webpack.mix.js watch",
+    "watch-poll": "mix --mix-config app/webpack.mix.js watch -- --watch-options-poll=1000",
+    "hot": "mix --mix-config app/webpack.mix.js watch --hot",
+    "prod": "mix --mix-config app/webpack.mix.js --production"
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "json-minimizer-webpack-plugin": "^4.0.0",
+    "laravel-mix": "^6.0.49",
+    "laravel-mix-merge-manifest": "^2.1.0",
+    "mix-env-file": "^0.1.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^1.6.6",
+    "react-dom": "^18.3.1",
+    "react-router": "6.4.4",
+    "react-router-dom": "6.4.4",
+    "sweetalert2": "^11.10.3",
+    "sweetalert2-react-content": "^5.0.7"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.24.1",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.13",
+    "react-refresh": "^0.14.2",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.76.0",
+    "sass-loader": "^12.6.0"
+  }
+}
