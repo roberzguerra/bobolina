@@ -66,9 +66,9 @@ mix
 
         // Cria alias para imports em arquivos scss:
         resolve: {
-            fallback: {
-                crypto: require.resolve("crypto-browserify"),
-            },
+            //fallback: {
+            //    crypto: require.resolve("crypto-browserify"),
+            //},
 
             alias: {
                 '@': path.resolve('app'),
@@ -153,7 +153,7 @@ mix
 
 // Gera os source maps, parametro generateForProduction = false, evita gerar sourcemaps em producao.
 mix.sourceMaps(false);
-//mix.setPublicPath('public/app');
+mix.setPublicPath('public');
 
 // Quando rodar npm run production: gera arquivos do mix com numero de versao, ex: app.js?id=123
 if (mix.inProduction()) {

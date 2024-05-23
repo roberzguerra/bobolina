@@ -1,6 +1,5 @@
-import React, {Suspense, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { createRoot } from 'react-dom/client';
-import Crawl from 'react-star-wars-crawl';
 
 const App = (props) => {
 

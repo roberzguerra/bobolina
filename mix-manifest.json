@@ -2,5 +2,9 @@
     "/public/app/app.js": "/public/app/app.js",
     "/public/app/manifest.js": "/public/app/manifest.js",
     "/public/app/app1.css": "/public/app/app1.css",
-    "/public/app/vendor.js": "/public/app/vendor.js"
+    "/public/app/vendor.js": "/public/app/vendor.js",
+    "/app/app1.css": "/app/app1.css",
+    "/app/app.js": "/app/app.js",
+    "/app/manifest.js": "/app/manifest.js",
+    "/app/vendor.js": "/app/vendor.js"
 }

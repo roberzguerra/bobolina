@@ -1,5 +1,10 @@
 # for-you
-for-you
+Para executar o projeto:
+- node v21.5.0
+- npm install
+- para rodar em hot reload, execute: npm run hot
+  - lembre de alterar o arquivo public/index.html, descomente os scripts importados no bloco **to hot reload** e comente os scripts importados em **to production**.
+- Compilar para produção, execute: npm run prod
 
 
 ## Ferramenta para enviar email:
