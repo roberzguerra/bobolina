@@ -9,6 +9,8 @@ const App = (props) => {
 
     const [playing, toggle] = useAudio(audioUrl);
     const [start, setstart] = useState(false);
+    const [passValue, setpassValue] = useState('');
+    const [checkTerms, setcheckTerms] = useState(false);
 
     useEffect(() => {
         for (let i = 0; i < numStars; i++) {
@@ -20,13 +22,24 @@ const App = (props) => {
             star.style.left = xy[1] + 'px';
             document.body.append(star);
         }
+
+        // TODO: for dev:
+        setstart(true);
     }, []);
 
     useEffect(() => {
       if (start) {
         toggle();
       }
-    }, [start])
+    }, [start]);
+
+    const handleSubmitStart = (e) => {
+        e.preventDefault();
+        if (passValue === 'wandolina') {
+            setstart(true);
+        }
+        return false;
+    };
     
     
 
@@ -50,12 +63,15 @@ const App = (props) => {
         */}
         {!start ?
             <div className="start-container">
-                <button
-                    className="start-button"
-                    onClick={(e) => setstart(true)}
-                >
-                Start
-            </button>
+                <form onSubmit={handleSubmitStart}>
+                    <input
+                        className='start-input'
+                        placeholder="Senha"
+                        value={passValue}
+                        onChange={(e) => setpassValue(e.target.value)}
+                        //onClick={(e) => setstart(true)}
+                    />
+                </form>
             </div>
             :
             <>
@@ -81,7 +97,48 @@ const App = (props) => {
                         <p>Até que, finalmente, o primeiro encontro acontece. E rola TUDO DE BOM!!!</p>
                         <img className="img-responsive" src="https://c.tenor.com/6BOApE8MQycAAAAC/tenor.gif" />
                         <p>Oh yeaaaah! Beibeeeeee... 🥄🥄🥄🥄🥄🥄🥄🥄🥄🥄🥄🥄🥄🥄🥄🥄🥄</p>
-                        <p></p>
+                        <div className="separator" style={{height: '100px'}} />
+                        <p>E tivemos a primeira viageeeeeeem \o/</p>
+                        <img className="img-responsive" src="https://c.tenor.com/tfwIivcfDLoAAAAC/tenor.gif" />
+                        <p>Onde encontramos nossa turminha do barulho!</p>
+                        <img className="img-responsive" src="https://lh3.googleusercontent.com/pw/AP1GczPF34rf6OATlMJUiHAcAjAFmlYvo-p_EQVcWS6LzKnztoSehcSMxWio9oCIrMUoAsPHIka2rUM5IHyO7HqiflA5b5zZoLLIN8-1lotgerY3FICANH3aHi5TZMDTxx-XYTpdsfSGXQy-i-LdlDpzs847QA=w1510-h2012-s-no?authuser=0" />
+                        <p>Tivemos nosa primeira noite na fogueira</p>
+                        <img className="img-responsive" src="https://lh3.googleusercontent.com/pw/AP1GczOfItmv4N5RiSs0azKo4DFKPIKQPlNvN4VXFLsZtdtzjvgbD_GLQ5L7gMAMkZL71kTV4Iy1iwsPx6SYlQ6b034qeaHo7uaaxbl7TVmwlaSvnEdBQ0kYvF7Pm2ZPY66Noy8FGakhUY3wXq5fl2_Uz6MBBQ=w730-h972-s-no?authuser=0" />
+                        <p>E fizemos nossa primeira trilha</p>
+                        <img className="img-responsive" src="https://lh3.googleusercontent.com/pw/AP1GczMrhuFOXBVyiJ5QEcOI6uKNC6Fev748c7nJ0-NethmuTaR3pCruT6C8AoAwmsaXchbp0Pxj81UsWQWE7hdmTsc1QfalwIXjm64JXRJ_CsMkUlYqDUhXVNxghEm7FGuZjmZ69Efihrow0Ms3KTH7V7fGww=w1510-h2012-s-no?authuser=0" />
+                        <p>E noites inesquecíveis sob um céu estrelado</p>
+                        <img className="img-responsive" src="https://lh3.googleusercontent.com/pw/AP1GczNrdw33tuekpYwNlPmnTaZLZWxS4OGrgepJpl55BHiqgcX-qrIYjYcybOTm9rMAzeGpj5v_Ft-atboK_O8rSq2pKYEme7mQ47Rg6QTmO2dpFicgjg_NbkPnYwMliuzj1C5AvOIyLjYJOAxVDheU4jqpqA=w1200-h1600-s-no?authuser=0" />
+                        <p>Um lugar encantado</p>
+                        <img className="img-responsive" src="https://lh3.googleusercontent.com/pw/AP1GczOo9iqt_A72IDe8rsLpjPEQ0uWYCQAD4a1Ar8pTqeUkP6DPIQP0zZodA2KgZ1koIP0tv-rU6U37q0ozZrAhSVrgz-6YEbyaOzeezm0h7uJKL58g785AweKJ73Uz-1AkqiXWnnY7QdI7avDRte8QOjaHaA=w1510-h2012-s-no?authuser=0" />
+                        <p>E um violão arretado.</p>
+                        <img className="https://lh3.googleusercontent.com/pw/AP1GczOfeoPQ-hEfOf8eYMmwxoEucInpH1DluuH1__UIoyzILwFkfxQzHWeoesc4XZh2SOyXemipx4Lhm2Cb1RS2H8IU-Lm3m5DSXxxJCl_hqrmsSrJAO749hYlayVfDczihDtw4bGd0w8OHuXdSlwASx_6jPA=w1510-h2012-s-no?authuser=0" />
+                        <p>Porquê somos assim, feitos pro fim do mundo... </p>
+                        <img className="img-responsive" src="https://lh3.googleusercontent.com/pw/AP1GczNJrM02vkglpCF-6kpCZz3iw3zAC__-go2MQsiEJEfhyGIrDbdVJSFGQI7CIEwnbP2GRUXdwEApKktYTISePFt7iLx_leRwENQE_XTMRoA4uDdT4OeWQ23Zxz2VHFmxQ3LhYIn952F78lVcs6Dg5O6B2w=w730-h972-s-no?authuser=0" />
+                        <p>Te quero pra mim, como me quero pra ti, VIADO! S2 S2 S2</p>
+                        <div className="separator" style={{height: '100px'}} />
+                        <div>
+                            <p>Li, concordo e aceito os coockies:
+                                <input 
+                                    className='input-check'
+                                    type="checkbox" 
+                                    value="1"
+                                    onChange={(e) => setcheckTerms(!!e.target.checked)}
+                                ></input>
+                            </p>
+                            <h1>Bora namora comigo? </h1>
+                            <button 
+                                className='btn btn-yes'
+                                disabled={!checkTerms}
+                                onClick={() => null}
+                            >Sim</button>
+                            <button 
+                                className='btn btn-no'
+                                onClick={() => null}
+                            >
+                                Não
+                                </button>
+                        </div>
+
                     </div>
                 </div>
             </>
