@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useSyncExternalStore} from 'react';
 import { createRoot } from 'react-dom/client';
+import Modal from 'react-modal';
 
 const App = (props) => {
 
@@ -11,6 +12,8 @@ const App = (props) => {
     const [start, setstart] = useState(false);
     const [passValue, setpassValue] = useState('');
     const [checkTerms, setcheckTerms] = useState(false);
+    const [showModalNo, setShowModalNo] = useState(false);
+    const [showModalYes, setShowModalYes] = useState(false);
 
     useEffect(() => {
         for (let i = 0; i < numStars; i++) {
@@ -111,40 +114,102 @@ const App = (props) => {
                         <p>Um lugar encantado</p>
                         <img className="img-responsive" src="https://lh3.googleusercontent.com/pw/AP1GczOo9iqt_A72IDe8rsLpjPEQ0uWYCQAD4a1Ar8pTqeUkP6DPIQP0zZodA2KgZ1koIP0tv-rU6U37q0ozZrAhSVrgz-6YEbyaOzeezm0h7uJKL58g785AweKJ73Uz-1AkqiXWnnY7QdI7avDRte8QOjaHaA=w1510-h2012-s-no?authuser=0" />
                         <p>E um violão arretado.</p>
-                        <img className="https://lh3.googleusercontent.com/pw/AP1GczOfeoPQ-hEfOf8eYMmwxoEucInpH1DluuH1__UIoyzILwFkfxQzHWeoesc4XZh2SOyXemipx4Lhm2Cb1RS2H8IU-Lm3m5DSXxxJCl_hqrmsSrJAO749hYlayVfDczihDtw4bGd0w8OHuXdSlwASx_6jPA=w1510-h2012-s-no?authuser=0" />
+                        <img className="img-responsive" src="https://lh3.googleusercontent.com/pw/AP1GczOfeoPQ-hEfOf8eYMmwxoEucInpH1DluuH1__UIoyzILwFkfxQzHWeoesc4XZh2SOyXemipx4Lhm2Cb1RS2H8IU-Lm3m5DSXxxJCl_hqrmsSrJAO749hYlayVfDczihDtw4bGd0w8OHuXdSlwASx_6jPA=w1510-h2012-s-no?authuser=0" />
+                        <p>E em meio ao caos ACOPALITICO, encontramos um meio... </p>
+                        <img className="img-responsive" src="https://c.tenor.com/ighx2VO2zL4AAAAC/tenor.gif" />
                         <p>Porquê somos assim, feitos pro fim do mundo... </p>
                         <img className="img-responsive" src="https://lh3.googleusercontent.com/pw/AP1GczNJrM02vkglpCF-6kpCZz3iw3zAC__-go2MQsiEJEfhyGIrDbdVJSFGQI7CIEwnbP2GRUXdwEApKktYTISePFt7iLx_leRwENQE_XTMRoA4uDdT4OeWQ23Zxz2VHFmxQ3LhYIn952F78lVcs6Dg5O6B2w=w730-h972-s-no?authuser=0" />
                         <p>Te quero pra mim, como me quero pra ti, VIADO! S2 S2 S2</p>
                         <div className="separator" style={{height: '100px'}} />
                         <div>
-                            <p>Li, concordo e aceito os coockies:
-                                <input 
+                            <label 
+                                htmlFor="input-check-terms" 
+                            >
+                                Li, concordo e aceito os cookies:
+                                <input
+                                    id="input-check-terms"
                                     className='input-check'
                                     type="checkbox" 
                                     value="1"
                                     onChange={(e) => setcheckTerms(!!e.target.checked)}
                                 ></input>
-                            </p>
+                            </label>
                             <h1>Bora namora comigo? </h1>
-                            <button 
-                                className='btn btn-yes'
-                                disabled={!checkTerms}
-                                onClick={() => null}
-                            >Sim</button>
-                            <button 
-                                className='btn btn-no'
-                                onClick={() => null}
-                            >
-                                Não
+                            <div style={{display: "flex", flexDirection: "column", gap: 40}}>
+                                <button 
+                                    className='btn btn-yes'
+                                    disabled={!checkTerms}
+                                    onClick={() => setShowModalYes(true)}
+                                >YEEES BEIBEEE</button>
+                                <button 
+                                    className='btn btn-no'
+                                    onClick={() => setShowModalNo(true)}
+                                >
+                                    Acho que não
                                 </button>
+                            </div>
                         </div>
 
                     </div>
                 </div>
             </>
         }
+
+        <Modal
+            isOpen={showModalNo}
+            //onAfterOpen={afterOpenModal}
+            //onRequestClose={closeModal}
+            style={modalStyle}
+            contentLabel=""
+        >
+            <div className="modal-main">
+                <button 
+                    className='btn btn-close-modal'
+                    onClick={(e) => setShowModalNo(false)}
+                >X</button>
+                <img className="img-responsive-100" src="https://c.tenor.com/FZ1ZJZrLXMgAAAAC/tenor.gif" />
+            </div>
+        </Modal>
+
+        <Modal
+            isOpen={showModalYes}
+            //onAfterOpen={afterOpenModal}
+            //onRequestClose={closeModal}
+            style={modalStyle}
+            contentLabel=""
+        >
+            <div className="modal-main">
+                <button 
+                    className='btn btn-close-modal'
+                    onClick={(e) => setShowModalYes(false)}
+                >X</button>
+                <img className="img-responsive-100" src="https://c.tenor.com/-u4McsSgkl4AAAAC/tenor.gif" />
+            </div>
+        </Modal>
+
         
     </div>)
+};
+
+
+const modalStyle = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#000000',
+        minWidth: '300px',
+        minHeight: '300px',
+        borderRadius: '40px',
+        zIndex: 50,
+    },
+    overlay: {
+        backgroundColor: 'rgba(0, 0, 0, 0.75)',
+        zIndex: 100,
+    }
 };
 
 
