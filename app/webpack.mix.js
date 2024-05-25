@@ -51,9 +51,9 @@ mix
     //.sass('resources/app/sass/base_laravel.scss','public/app/css')
 
     // ATENCAO!!! Nao utilizar o nome "app.css" no arquivo final, pois ocorre um problema que nao atualiza demais arquivos .css com hot reload.
-    .sass('app/sass/app.scss', 'public/app/app1.css')
+    .sass('app/sass/app.scss', 'app')
 
-    .js('app/app.js', 'public/app')
+    .js('app/app.js', 'app')
     .react()
 
     .webpackConfig({
