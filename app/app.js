@@ -69,8 +69,6 @@ const App = (props) => {
     };
 
     const sendMail = () => {
-        console.log('sendMail...')
-
         const dateStart = new Date();
         const dateStartFormat = dateStart.toISOString().replace(/-|:|\./g, '');
         const dateEnd = new Date(dateStart);
@@ -202,7 +200,7 @@ const App = (props) => {
                             starWarsToggle();
                             pedroToggle();
                             setShowModalYes(true);
-                            sendMail();
+                            //sendMail();
                         }}
                     >YEEES BEIBEEE</button>
                     <button 
